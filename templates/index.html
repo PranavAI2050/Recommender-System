@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+    <style>
+        .recommendations-container {
+            margin-top: 20px;
+        }
+
+        .recommendations-header {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .recommendations-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    </style>
+    <title>Recommender App</title>
+</head>
+
+<body>
+    <h1 class="text-center">😎🎬🍿</h1>
+
+    <p class="font-italic text-info text-center">Get The Top Recommended movies if the User watched the movie</p>
+
+    <!-- Movie Title Form -->
+    <form method="post" action="{{ url_for('predict_movie') }}" class="text-center">
+        <div class="form-group">
+            <label for="sel2" class="font-italic font-weight-bold text-center">Select Movie Title</label>
+        
+            <select class="form-control" id="sel2" name="movie_name">
+                {% for movie in movies %}
+                    <option class="font-italic" value="{{ movie }}">{{ movie }}</option>
+                {% endfor %}
+            </select>
+            
+        </div>
+        <button type="submit" class="btn btn-success text-center">Get Recommendations</button>
+    </form>
+     
+    <div style="overflow-y: auto; padding :100px" class="recommendations-container align-items-center text-center">
+        {% if recommendations_movie %}
+        <h2 class="recommendations-header">Movie Recommendations:</h2>
+            <ul class="recommendations-list">
+                {% for movie in recommendations_movie %}
+                    <li class="list-group-item list-group-item-primary">{{ movie }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    
+</body>
+
+</html>
