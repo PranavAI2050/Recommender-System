@@ -2,6 +2,8 @@
 
 Welcome to the Movie Recommender System repository! This project leverages collaborative filtering to provide personalized movie recommendations based on user preferences and similarities between movies. The recommendation engine is trained on the MovieLens dataset, capturing user ratings for various movies.
 
+https://github.com/PranavAI2050/Recommender-System/assets/123180829/0334ec0b-ad50-494b-a008-191bac3234ae
+
 ## Features
 
 - **User-based Recommendations**: Input a user_id to receive personalized movie recommendations based on similar users' preferences.
